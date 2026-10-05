@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If this software is used in academic work, please cite the repository."
+title: "Kerr-Schild Geodesics"
+type: software
+authors:
+  - family-names: "Ansari"
+    given-names: "Allanur"
+repository-code: "https://github.com/AllanurAll/kerr-schild-geodesics"
+license: MIT
+version: 1.0.0
+date-released: 2026-10-05
+keywords:
+  - general relativity
+  - Kerr black hole
+  - Schwarzschild black hole
+  - geodesics
+  - photon trajectories
+  - Kerr-Schild coordinates
+  - numerical relativity
