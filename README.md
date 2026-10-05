@@ -26,9 +26,9 @@ The Schwarzschild example remains in a fixed orbital plane and shows relativisti
 
 In Schwarzschild spacetime the transition between capture and scattering occurs near the familiar critical photon impact parameter,
 
-$$
+```math
 b_{\rm crit}=3\sqrt{3}\,M.
-$$
+```
 
 For Kerr spacetime, equal-magnitude prograde and retrograde offsets do not produce identical outcomes because photon angular momentum couples to the black-hole spin.
 
@@ -45,19 +45,19 @@ These maps classify initially parallel null rays as captured or escaped. They ar
 
 The Kerr metric is written in Kerr–Schild form,
 
-$$
+```math
 g_{\mu\nu}
 =
 \eta_{\mu\nu}
 +
 2H\ell_\mu\ell_\nu,
-$$
+```
 
 with metric signature $(-+++)$ and geometrized units $G=c=1$.
 
 The numerical evolution uses the geodesic equation
 
-$$
+```math
 \frac{d^2x^\mu}{d\lambda^2}
 +
 \Gamma^\mu_{\alpha\beta}
@@ -65,29 +65,29 @@ $$
 \frac{dx^\beta}{d\lambda}
 =
 0.
-$$
+```
 
 Rather than simplifying all 64 Christoffel-symbol components separately, the symbolic calculation forms the contracted acceleration directly,
 
-$$
+```math
 A^\mu
 =
 -\Gamma^\mu_{\alpha\beta}u^\alpha u^\beta.
-$$
+```
 
 This is the quantity required by the integrator. The symbolic expressions are reduced with common-subexpression elimination and converted to numerical Python functions. No SymPy operations occur inside the trajectory integration loop.
 
 Timelike trajectories satisfy
 
-$$
+```math
 g_{\mu\nu}u^\mu u^\nu=-1,
-$$
+```
 
 while photon trajectories satisfy
 
-$$
+```math
 g_{\mu\nu}k^\mu k^\nu=0.
-$$
+```
 
 The Schwarzschild limit is obtained by setting the Kerr spin parameter $a=0$.
 
@@ -138,11 +138,11 @@ Small floating-point differences between systems are expected.
 
 For a zero-angular-momentum observer,
 
-$$
+```math
 \Omega_{\rm ZAMO}
 =
 -\frac{g_{t\phi}}{g_{\phi\phi}}.
-$$
+```
 
 For $a=0.5M$, the numerical values from the validation notebook are approximately
 
