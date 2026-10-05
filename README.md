@@ -26,9 +26,9 @@ The Schwarzschild example remains in a fixed orbital plane and shows relativisti
 
 In Schwarzschild spacetime the transition between capture and scattering occurs near the familiar critical photon impact parameter,
 
-\[
+$$
 b_{\rm crit}=3\sqrt{3}\,M.
-\]
+$$
 
 For Kerr spacetime, equal-magnitude prograde and retrograde offsets do not produce identical outcomes because photon angular momentum couples to the black-hole spin.
 
@@ -45,19 +45,19 @@ These maps classify initially parallel null rays as captured or escaped. They ar
 
 The Kerr metric is written in Kerr–Schild form,
 
-\[
+$$
 g_{\mu\nu}
 =
 \eta_{\mu\nu}
 +
 2H\ell_\mu\ell_\nu,
-\]
+$$
 
-with metric signature \((-+++)\) and geometrized units \(G=c=1\).
+with metric signature $(-+++)$ and geometrized units $G=c=1$.
 
 The numerical evolution uses the geodesic equation
 
-\[
+$$
 \frac{d^2x^\mu}{d\lambda^2}
 +
 \Gamma^\mu_{\alpha\beta}
@@ -65,31 +65,31 @@ The numerical evolution uses the geodesic equation
 \frac{dx^\beta}{d\lambda}
 =
 0.
-\]
+$$
 
 Rather than simplifying all 64 Christoffel-symbol components separately, the symbolic calculation forms the contracted acceleration directly,
 
-\[
+$$
 A^\mu
 =
 -\Gamma^\mu_{\alpha\beta}u^\alpha u^\beta.
-\]
+$$
 
 This is the quantity required by the integrator. The symbolic expressions are reduced with common-subexpression elimination and converted to numerical Python functions. No SymPy operations occur inside the trajectory integration loop.
 
 Timelike trajectories satisfy
 
-\[
+$$
 g_{\mu\nu}u^\mu u^\nu=-1,
-\]
+$$
 
 while photon trajectories satisfy
 
-\[
+$$
 g_{\mu\nu}k^\mu k^\nu=0.
-\]
+$$
 
-The Schwarzschild limit is obtained by setting the Kerr spin parameter \(a=0\).
+The Schwarzschild limit is obtained by setting the Kerr spin parameter $a=0$.
 
 ## Numerical strategy
 
@@ -111,7 +111,7 @@ RK4 trajectory integration
 
 The reconstructed implementation avoids the symbolic bottleneck that motivated the original Fortran stage.
 
-A representative benchmark on the development machine gave approximately \(0.53\,\mu{\rm s}\) per compiled geodesic right-hand-side evaluation after JIT compilation.
+A representative benchmark on the development machine gave approximately $0.53\,\mu{\rm s}$ per compiled geodesic right-hand-side evaluation after JIT compilation.
 
 ## Validation
 
@@ -121,14 +121,14 @@ The solver is checked against analytic limits, exact circular geodesics, conserv
 |---|---:|
 | Kerr radial quartic identity | exact symbolic zero |
 | Kerr–Schild null-vector identity | exact symbolic zero |
-| Numerical null-vector residual | \(2.22\times10^{-16}\) |
-| Schwarzschild circular orbit: maximum radial drift | \(4.01\times10^{-13}M\) |
-| Schwarzschild: maximum normalization drift | \(2.38\times10^{-14}\) |
-| Schwarzschild: maximum energy drift | \(1.02\times10^{-14}\) |
-| Schwarzschild: maximum \(L_z\) drift | \(1.47\times10^{-14}\) |
-| RK4 vs. SciPy DOP853 final-state difference | \(4.47\times10^{-10}\) |
-| Kerr \(a=0.5M\), prograde circular orbit: radial drift | \(3.46\times10^{-13}M\) |
-| Kerr \(a=0.5M\), retrograde circular orbit: radial drift | \(4.39\times10^{-13}M\) |
+| Numerical null-vector residual | $2.22\times10^{-16}$ |
+| Schwarzschild circular orbit: maximum radial drift | $4.01\times10^{-13}M$ |
+| Schwarzschild: maximum normalization drift | $2.38\times10^{-14}$ |
+| Schwarzschild: maximum energy drift | $1.02\times10^{-14}$ |
+| Schwarzschild: maximum $L_z$ drift | $1.47\times10^{-14}$ |
+| RK4 vs. SciPy DOP853 final-state difference | $4.47\times10^{-10}$ |
+| Kerr $a=0.5M$, prograde circular orbit: radial drift | $3.46\times10^{-13}M$ |
+| Kerr $a=0.5M$, retrograde circular orbit: radial drift | $4.39\times10^{-13}M$ |
 
 The automated test suite currently contains ten tests covering metric limits, circular timelike motion, frame dragging, null normalization, photon capture/scattering, and Kerr prograde/retrograde capture asymmetry.
 
@@ -138,19 +138,19 @@ Small floating-point differences between systems are expected.
 
 For a zero-angular-momentum observer,
 
-\[
+$$
 \Omega_{\rm ZAMO}
 =
 -\frac{g_{t\phi}}{g_{\phi\phi}}.
-\]
+$$
 
-For \(a=0.5M\), the numerical values from the validation notebook are approximately
+For $a=0.5M$, the numerical values from the validation notebook are approximately
 
-| Radius | \(\Omega_{\rm ZAMO}M\) |
+| Radius | $\Omega_{\rm ZAMO}M$ |
 |---|---:|
-| \(10M\) | \(9.97\times10^{-4}\) |
-| \(5M\) | \(7.89\times10^{-3}\) |
-| \(3M\) | \(3.54\times10^{-2}\) |
+| $10M$ | $9.97\times10^{-4}$ |
+| $5M$ | $7.89\times10^{-3}$ |
+| $3M$ | $3.54\times10^{-2}$ |
 
 The increase toward the black hole provides a direct numerical illustration of rotational frame dragging.
 
